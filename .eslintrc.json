@@ -1,9 +1,9 @@
 {
-    "extends": ["next/core-web-vitals", "next/typescript", "plugin:prettier/recommended"],
-    "rules": {
-      "semi": ["error", "always"],
-      "quotes": ["error", "single"],
-      "no-unused-vars": "warn",
-      "react/react-in-jsx-scope": "off" // Disable if using Next.js 13+ with the new App directory
-    }
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "no-unused-vars": "warn",
+    "react/react-in-jsx-scope": "off" // Disable if using Next.js 13+ with the new App directory
   }
+}

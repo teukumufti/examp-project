@@ -1,8 +1,8 @@
 // this global call api
-import {persistor, store} from '@/redux/store';
+import { persistor, store } from '@/redux/store';
 import { auth } from './lists/auth';
 import axios, { ResponseType } from 'axios';
-import {setToken} from '@/redux/action/auth';
+import { setToken } from '@/redux/action/auth';
 
 export const API = {
   auth,
@@ -19,13 +19,13 @@ interface PropsRequest {
 }
 
 export const axiosRequest = async ({
-  url, 
-  method, 
-  payload, 
-  params, 
-  exportData = false, 
-  responseType, 
-  type = 'data'
+  url,
+  method,
+  payload,
+  params,
+  exportData = false,
+  responseType,
+  type = 'data',
 }: PropsRequest) => {
   const stores = store.getState();
   const token = stores.auth?.token;
@@ -42,7 +42,8 @@ export const axiosRequest = async ({
         },
       });
       return response;
-    } if(type === 'file') {
+    }
+    if (type === 'file') {
       const response = await axios({
         method: method,
         url: url,
@@ -50,11 +51,11 @@ export const axiosRequest = async ({
         params,
         headers: {
           Authorization: `Bearer ${token || null}`,
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
         },
       });
       return response;
-    } else if(responseType) {
+    } else if (responseType) {
       const response = await axios({
         method: method,
         url: url,
@@ -93,8 +94,7 @@ export const axiosRequest = async ({
     }
 
     if ([500].includes(errorData?.status)) {
-    //  handling if server error
-    }
-    else throw error;
+      //  handling if server error
+    } else throw error;
   }
 };

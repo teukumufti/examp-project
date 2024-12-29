@@ -6,11 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*.{css,scss,md}": "prettier --write"
+    "lint": "next lint",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
